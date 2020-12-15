@@ -1,59 +1,42 @@
 .custom-button {
-    min-width: 8vw;
-    height: 50px;
-    letter-spacing: 0.5px;
-    line-height: 50px;
-    padding: 0 35px 0 35px;
-    font-size: 15px;
-    background-color: rgb(114, 113, 113);
-     border-radius: 4px;
-    color: white;
-    text-transform: uppercase;
-    font-family: 'Open Sans Condensed';
-    font-weight: bolder;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
+    min-width       : 20vw;
+    height          : 50px;
+    letter-spacing  : 0.5px;
+    line-height     : 50px;
+    padding         : 0 35px 0 35px;
+    font-size       : 15px;
+    border-radius   : 4px;
+    background-color  : rgb(114, 113, 113);
+    color             : white;
+    text-transform    : uppercase;
+    font-family       : 'Open Sans Condensed';
+    font-weight       : bolder;
+    border            : none;
+    cursor            : pointer;
+    display           : flex;
+    justify-content   : center;
   
     &:hover {
-      background-color:rgb(223, 221, 221);
-      color: black;
-    //   border: 1px solid black;
+     filter: brightness(1.1);
+    }
+    &:active{
+      transform: scale(0.9);
     }
     @media screen and (max-width: 800px){
-      min-width: 10vw;
+      min-width: 15vw;
       padding: 0 5px 0 5px;
-      &:hover{
-        background-color:rgb(223, 221, 221);
-        color: black;
-        //   border: 1px solid black;
-      }
     }
-    &.google-button{
-        background-color: #eeeeee;
-        color:black;
+    &.disabled-button{
         &:hover {
-          cursor: not-allowed
+          cursor: not-allowed;
+          filter: brightness(1);
         }
-
-    }
-    &.inverted{
-      background-color: white;
-      color: black;
-      // border: 1px solid black;
-      &:hover{
-        background-color: rgb(114, 113, 113);;
-        color: white;
-        border: none;
-      }
-      @media screen and (max-width: 800px){
-        &:hover{
-            background-color: white;
-            color: black;
-            // border: 1px solid black
+        &:active{
+          transform: scale(1);
         }
-      }
+        &:focus{
+          outline: none;
+        }
     }
   }
   

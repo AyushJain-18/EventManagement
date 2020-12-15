@@ -2,16 +2,11 @@ import React from 'react'
 import './custumButton.styles.scss'
 
 // {children,...otherprops}
-const CustumButton =({children,disabled, inverted ,...otherprops})=>{
+const CustumButton =({children,disabled,...otherprops})=>{
     return(
-                <button 
-                    className ={
-                                `${disabled? 'google-button custom-button': 
-                                (inverted? 'inverted custom-button': 'custom-button') }`
-                            }
-                     {...otherprops}>
-                         {children}
-                </button>
+            <button {...otherprops} disabled={disabled}
+                className ={disabled?'disabled-button custom-button': 'custom-button'}
+            >{children}</button>
     )
 }
 
