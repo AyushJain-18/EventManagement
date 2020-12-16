@@ -1,7 +1,5 @@
 import React from 'react';
 import './events.styles.scss';
-
-
 class CustumEvent extends React.Component{
     constructor(props){
         super(props);
@@ -23,6 +21,5 @@ class CustumEvent extends React.Component{
         )
     }
 }
-
 
 export default CustumEvent;

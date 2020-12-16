@@ -1,10 +1,13 @@
 import React from 'react';
 import './events-container.styles.scss';
+import {connect} from 'react-redux';
 
 import CustumEvent from '../events/events.component';
 import CustumSelect from '../custum-components/custum-select/custumSelect.component';
-import {getRequest} from '../../util/api.call';
 import {getAllFreeEvents, getAllDiscountEvents, getAllZeroDiscountEvents} from '../../util/filter.utils';
+
+import {selectAllEvents} from '../../store/events/event.selector';
+
 
 class EventContainer extends React.Component{
     filterOptions = [{value: 'ALL' },{value: 'Free'},{value:'Discount'},{value:'No Discount'}];
@@ -15,13 +18,8 @@ class EventContainer extends React.Component{
             eventsToDisplay: []
         }
     }
-    async componentDidMount(){
-        try {   
-            const eventData= await  getRequest('/events');
-            this.setState({allEvents: eventData.data, eventsToDisplay: eventData.data})
-        } catch(error){
-
-        }
+    componentDidMount(){
+           this.setState({allEvents: this.props.allEvents, eventsToDisplay:this.props.allEvents})
     }
     handelFilterChangeEvent = value => {
         let filteredEventArray =[];
@@ -36,7 +34,7 @@ class EventContainer extends React.Component{
         return(
             <div className='filter-event-container'> 
             <div>
-                Filter By: &nbsp; - &nbsp;&nbsp;
+                Filter By: &nbsp;&nbsp;
                 <CustumSelect name='filter' id='filter'options={this.filterOptions} 
                               defaultValue='ALL' handleChange={this.handelFilterChangeEvent}/>
                 
@@ -55,5 +53,11 @@ class EventContainer extends React.Component{
     }
 }
 
+const mapStatToProps =(state)=>{
+    return{
+            allEvents: selectAllEvents(state)
+    }
+}
+export default connect(mapStatToProps)(EventContainer);
 
-export default EventContainer;
+

@@ -3,7 +3,10 @@ import './new-event-forms.styles.scss';
 
 import FormInput from '../custum-components/form-input/form-input.component';
 import CustumButton from '../custum-components/CustumButon/custumButton.component';
-import {postRequest} from '../../util/api.call'
+
+import {connect} from 'react-redux';
+
+import {startAddingNewEvent} from '../../store/events/event.action';
 
 
 class AddNewEventForm extends React.Component{
@@ -39,7 +42,8 @@ class AddNewEventForm extends React.Component{
         }
         console.log('event Data is',eventData);
         try{
-            postRequest('/events', eventData)
+           // postRequest('/events', eventData)
+           this.props.startAddingNewEvents(eventData);
         } catch(error){
             console.log('error in post request')
         }
@@ -189,4 +193,12 @@ class AddNewEventForm extends React.Component{
     }
 }
 
-export default AddNewEventForm;
+
+
+const mapDispatchToprops =dispatch=>{
+    return{
+        startAddingNewEvents: (eventData)=>dispatch(startAddingNewEvent(eventData))
+    }
+}
+
+export default connect(null,mapDispatchToprops)(AddNewEventForm);

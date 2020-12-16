@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const serverUrl ='http://localhost:5000';
-// const serverUrl =  'https://database2021.herokuapp.com';
+//const serverUrl ='http://localhost:5000';
+const serverUrl =  'https://database2021.herokuapp.com';
 
 
 export const getRequest =(endpoint)=>{ // '/events'
