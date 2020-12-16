@@ -106,7 +106,6 @@ class AddNewEventForm extends React.Component{
             } = this.state;
         return(
             <div className ='form-container'>
-                <h2 className = 'form-header'>ADD NEW EVENT</h2>
                     <form className = 'add-new-event-form'onSubmit={this.handleSubmit}> 
                             <FormInput 
                                 type='text' 
