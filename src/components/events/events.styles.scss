@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
+.each-event-container{
+    display         : flex;
+    width           : calc(50% - 30px);
+    min-width       : 400px ;
+    margin          : 20px 0px ;
+    flex-direction  : column;
+    justify-content : space-around;
+    align-items     : center ;
+    min-height      : 200px;
+    height          : auto ;
+    border          : 1px solid black;
+    border-radius   : 5px;
+    box-shadow      : 10px 10px 10px gainsboro ;
+    font-family     : 'Karla', sans-serif;
+    font-size       : 1.5rem ;
+}
+
+
+.event-item{
+    width:  90%;
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
