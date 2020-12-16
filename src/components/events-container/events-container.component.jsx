@@ -4,6 +4,7 @@ import './events-container.styles.scss';
 import CustumEvent from '../events/events.component';
 import CustumSelect from '../custum-components/custum-select/custumSelect.component';
 import {getRequest} from '../../util/api.call';
+import {getAllFreeEvents, getAllDiscountEvents, getAllZeroDiscountEvents} from '../../util/filter.utils';
 
 class EventContainer extends React.Component{
     filterOptions = [{value: 'ALL' },{value: 'Free'},{value:'Discount'},{value:'No Discount'}];
@@ -11,28 +12,27 @@ class EventContainer extends React.Component{
         super(props);
         this.state={
             allEvents: [],
-            filterValue: 'ALL'
+            eventsToDisplay: []
         }
     }
     async componentDidMount(){
         try {   
             const eventData= await  getRequest('/events');
-            console.log(Array.isArray(eventData.data) )
-            this.setState({allEvents: eventData.data})
+            this.setState({allEvents: eventData.data, eventsToDisplay: eventData.data})
         } catch(error){
 
         }
     }
     handelFilterChangeEvent = value => {
-        this.setState({filterValue: value})
+        let filteredEventArray =[];
+        if(value === 'ALL'){            filteredEventArray  = this.state.allEvents; }
+        if(value === 'Free'){           filteredEventArray  = getAllFreeEvents(this.state.allEvents); }
+        if(value ==='Discount'){        filteredEventArray  = getAllDiscountEvents(this.state.allEvents);}
+        if(value ==='No Discount'){     filteredEventArray  = getAllZeroDiscountEvents(this.state.allEvents); }
+        this.setState({eventsToDisplay: filteredEventArray})
 
     }
     render(){
-        if(this.state.allEvents.length === 0){
-            return (
-            <div className='no-events'>No events found</div>
-            )
-        }
         return(
             <div className='filter-event-container'> 
             <div>
@@ -41,12 +41,15 @@ class EventContainer extends React.Component{
                               defaultValue='ALL' handleChange={this.handelFilterChangeEvent}/>
                 
             </div>
-            <div className='event-container'>
-                        {this.state.allEvents.map((eachEvents,index) =>{
-                            console.log(eachEvents)
-                            return  <CustumEvent key={index} eventData= {eachEvents}/>
-                        })}
+            {
+                this.state.eventsToDisplay.length === 0? 
+                <div className='no-events'>No events found</div>: 
+                <div className='event-container'>
+                            {this.state.eventsToDisplay.map((eachEvents,index) =>{
+                                return  <CustumEvent key={index} eventData= {eachEvents}/>
+                            })}
                 </div>
+            }
         </div>
         )
     }
