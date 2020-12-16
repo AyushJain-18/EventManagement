@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/eventManagementDB/static/css/main.215d177e.chunk.css",
+    "main.js": "/eventManagementDB/static/js/main.25e61552.chunk.js",
+    "main.js.map": "/eventManagementDB/static/js/main.25e61552.chunk.js.map",
+    "runtime-main.js": "/eventManagementDB/static/js/runtime-main.bdd16827.js",
+    "runtime-main.js.map": "/eventManagementDB/static/js/runtime-main.bdd16827.js.map",
+    "static/js/2.960218c5.chunk.js": "/eventManagementDB/static/js/2.960218c5.chunk.js",
+    "static/js/2.960218c5.chunk.js.map": "/eventManagementDB/static/js/2.960218c5.chunk.js.map",
+    "index.html": "/eventManagementDB/index.html",
+    "static/css/main.215d177e.chunk.css.map": "/eventManagementDB/static/css/main.215d177e.chunk.css.map",
+    "static/js/2.960218c5.chunk.js.LICENSE.txt": "/eventManagementDB/static/js/2.960218c5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bdd16827.js",
+    "static/js/2.960218c5.chunk.js",
+    "static/css/main.215d177e.chunk.css",
+    "static/js/main.25e61552.chunk.js"
+  ]
+}
