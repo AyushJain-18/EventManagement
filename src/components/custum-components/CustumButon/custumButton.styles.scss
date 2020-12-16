@@ -27,6 +27,7 @@
       padding: 0 5px 0 5px;
     }
     &.disabled-button{
+      background-color  : rgba(114, 113, 113, 0.9);
         &:hover {
           cursor: not-allowed;
           filter: brightness(1);

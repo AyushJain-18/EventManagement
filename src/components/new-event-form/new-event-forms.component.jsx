@@ -4,10 +4,6 @@ import './new-event-forms.styles.scss';
 import FormInput from '../custum-components/form-input/form-input.component';
 import CustumButton from '../custum-components/CustumButon/custumButton.component';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfo } from '@fortawesome/free-solid-svg-icons'
-
-
 
 class AddNewEventForm extends React.Component{
     constructor(props){
@@ -28,7 +24,6 @@ class AddNewEventForm extends React.Component{
             venueErrorMsg: '',
             priceErrorMsg: '',
             discountErrorMsg: '',
-            isSubmitButtonDisabled: true
         }
     }
     handleSubmit=(event)=>{
@@ -38,7 +33,7 @@ class AddNewEventForm extends React.Component{
     handleChnage=(event)=>{ 
             const{name,value, validity} = event.target;
             this.validateForm( name,value,validity);
-            this.setState({[`${name}`]: value}, ()=> console.log('updated event state is',this.state))
+            this.setState({[`${name}`]: value})
     }
     resetForm = ()=>{
         this.setState({
@@ -57,7 +52,6 @@ class AddNewEventForm extends React.Component{
             venueErrorMsg: '',
             priceErrorMsg: '',
             discountErrorMsg: '',
-            isSubmitButtonDisabled: true
         })
     }
     validateForm=(name, value,validity)=>{
@@ -65,21 +59,21 @@ class AddNewEventForm extends React.Component{
            if(!validity.valid){
                 this.setState({hasEventNameError: true, eventNameErrorMsg:'Event name cannot be Empty'});
             }else{
-                this.setState({hasEventNameError: false, eventNameErrorMsg:value});
+                this.setState({hasEventNameError: false, eventNameErrorMsg:''});
             }
          }
        if(name === 'description'){
             if(!validity.valid){
                 this.setState({hasDescriptionError: true, descriptionErrorMsg:'Description cannot be Empty'});
             }else{
-                this.setState({hasDescriptionError: false, descriptionErrorMsg:value});
+                this.setState({hasDescriptionError: false, descriptionErrorMsg:''});
             }
        }
        if(name === 'venue'){
             if(!validity.valid){
                 this.setState({hasVenueError: true, venueErrorMsg:'Venue cannot be Empty'});
             }else{
-                this.setState({hasVenueError: false, venueErrorMsg:value});
+                this.setState({hasVenueError: false, venueErrorMsg:''});
             }
        }
        if(name === 'price'){
@@ -87,7 +81,7 @@ class AddNewEventForm extends React.Component{
                 let errorMsg= 'price is mandatory and cannot be less than one';
                 this.setState({hasPriceError: true, priceErrorMsg:errorMsg});
                 }else{
-                this.setState({hasPriceError: false, priceErrorMsg:value});
+                this.setState({hasPriceError: false, priceErrorMsg:''});
                 }
        }
        if(name === 'discount'){
@@ -99,16 +93,16 @@ class AddNewEventForm extends React.Component{
                 errorMsg = 'discount percentage cannot be greater than 100';
             }
             if(!validity.valid){
-                this.setState({hasDiscountError: true, discountErrorMsg:errorMsg});
+                this.setState({hasDiscountError: true,discountErrorMsg:errorMsg});
             }else{
-                this.setState({hasDiscountError: false, discountErrorMsg:value});
+                this.setState({hasDiscountError: false, discountErrorMsg:''});
             }
        }
     }
     render(){
-        const {eventName,description,venue,price,discount,hasDiscountError,isSubmitButtonDisabled,
-             hasEventNameError,hasDescriptionError,hasVenueError,hasPriceError,
-             eventNameErrorMsg,descriptionErrorMsg, venueErrorMsg, priceErrorMsg, discountErrorMsg,
+        const {eventName,description,venue,price,discount,hasDiscountError,hasEventNameError,
+             hasDescriptionError,hasVenueError,hasPriceError,priceErrorMsg, discountErrorMsg,
+             eventNameErrorMsg,descriptionErrorMsg,venueErrorMsg
             } = this.state;
         return(
             <div className ='form-container'>
@@ -172,7 +166,7 @@ class AddNewEventForm extends React.Component{
                                     handleChange ={this.handleChnage}/>  
                                     {hasDiscountError&&<span className='errorMessage'>{discountErrorMsg}</span>}  
                 <div className='form-button'>
-                    <CustumButton type ='submit' disabled={isSubmitButtonDisabled}>Add Event </CustumButton>
+                    <CustumButton type ='submit'>Add New Event </CustumButton>
                     <CustumButton  type ='button' onClick={this.resetForm}>Reset</CustumButton>
                 </div>
         </form> 
