@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/EventManagement/static/css/main.215d177e.chunk.css",
-    "main.js": "/EventManagement/static/js/main.25e61552.chunk.js",
-    "main.js.map": "/EventManagement/static/js/main.25e61552.chunk.js.map",
+    "main.css": "/EventManagement/static/css/main.db151500.chunk.css",
+    "main.js": "/EventManagement/static/js/main.b615352b.chunk.js",
+    "main.js.map": "/EventManagement/static/js/main.b615352b.chunk.js.map",
     "runtime-main.js": "/EventManagement/static/js/runtime-main.835b04b3.js",
     "runtime-main.js.map": "/EventManagement/static/js/runtime-main.835b04b3.js.map",
-    "static/js/2.960218c5.chunk.js": "/EventManagement/static/js/2.960218c5.chunk.js",
-    "static/js/2.960218c5.chunk.js.map": "/EventManagement/static/js/2.960218c5.chunk.js.map",
+    "static/js/2.50f9d718.chunk.js": "/EventManagement/static/js/2.50f9d718.chunk.js",
+    "static/js/2.50f9d718.chunk.js.map": "/EventManagement/static/js/2.50f9d718.chunk.js.map",
     "index.html": "/EventManagement/index.html",
-    "static/css/main.215d177e.chunk.css.map": "/EventManagement/static/css/main.215d177e.chunk.css.map",
-    "static/js/2.960218c5.chunk.js.LICENSE.txt": "/EventManagement/static/js/2.960218c5.chunk.js.LICENSE.txt"
+    "static/css/main.db151500.chunk.css.map": "/EventManagement/static/css/main.db151500.chunk.css.map",
+    "static/js/2.50f9d718.chunk.js.LICENSE.txt": "/EventManagement/static/js/2.50f9d718.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.835b04b3.js",
-    "static/js/2.960218c5.chunk.js",
-    "static/css/main.215d177e.chunk.css",
-    "static/js/main.25e61552.chunk.js"
+    "static/js/2.50f9d718.chunk.js",
+    "static/css/main.db151500.chunk.css",
+    "static/js/main.b615352b.chunk.js"
   ]
 }
