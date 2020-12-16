@@ -3,6 +3,7 @@ import './new-event-forms.styles.scss';
 
 import FormInput from '../custum-components/form-input/form-input.component';
 import CustumButton from '../custum-components/CustumButon/custumButton.component';
+import {postRequest} from '../../util/api.call'
 
 
 class AddNewEventForm extends React.Component{
@@ -28,7 +29,21 @@ class AddNewEventForm extends React.Component{
     }
     handleSubmit=(event)=>{
         event.preventDefault();
-        console.log('event state is ',this.state);
+        let eventData = {
+            "id":  this.state.eventName + this.state.venue +this.state.price,
+            "Description"   : this.state.description,
+            "Discount"      : this.state.discount, 
+            "Event_Name"    : this.state.eventName,
+            "Price"         : this.state.price,
+            "Venue"         : this.state.venue
+        }
+        console.log('event Data is',eventData);
+        try{
+            postRequest('/events', eventData)
+        } catch(error){
+            console.log('error in post request')
+        }
+     
     }
     handleChnage=(event)=>{ 
             const{name,value, validity} = event.target;

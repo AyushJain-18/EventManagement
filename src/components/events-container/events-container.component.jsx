@@ -2,7 +2,8 @@ import React from 'react';
 import './events-container.styles.scss';
 
 import CustumEvent from '../events/events.component';
-import CustumSelect from '../custum-components/custum-select/custumSelect.component'
+import CustumSelect from '../custum-components/custum-select/custumSelect.component';
+import {getRequest} from '../../util/api.call';
 
 class EventContainer extends React.Component{
     filterOptions = [{value: 'ALL' },{value: 'Free'},{value:'Discount'},{value:'No Discount'}];
@@ -13,8 +14,14 @@ class EventContainer extends React.Component{
             filterValue: 'ALL'
         }
     }
-    componentDidMount(){
-            this.setState({allEvents: [1,2,4,5]})
+    async componentDidMount(){
+        try {   
+            const eventData= await  getRequest('/events');
+            console.log(Array.isArray(eventData.data) )
+            this.setState({allEvents: eventData.data})
+        } catch(error){
+
+        }
     }
     handelFilterChangeEvent = value => {
         this.setState({filterValue: value})
@@ -27,7 +34,7 @@ class EventContainer extends React.Component{
             )
         }
         return(
-            <div class='filter-event-container'> 
+            <div className='filter-event-container'> 
             <div>
                 Filter By: &nbsp; - &nbsp;&nbsp;
                 <CustumSelect name='filter' id='filter'options={this.filterOptions} 
@@ -36,6 +43,7 @@ class EventContainer extends React.Component{
             </div>
             <div className='event-container'>
                         {this.state.allEvents.map((eachEvents,index) =>{
+                            console.log(eachEvents)
                             return  <CustumEvent key={index} eventData= {eachEvents}/>
                         })}
                 </div>
